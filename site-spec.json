@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0",
+  "task": {
+    "text": "origin-check"
+  },
+  "mode": "dry-run",
+  "source": "rule-based",
+  "site_type": "landing",
+  "document": {
+    "language": "uk",
+    "direction": "ltr",
+    "title_template": "{{page_title}} | {{project_name_placeholder}}",
+    "description_template": "{{page_description_placeholder}}"
+  },
+  "design_tokens": {
+    "colors": {
+      "background": "#0B1020",
+      "surface": "#151C33",
+      "text": "#F8FAFC",
+      "muted_text": "#CBD5E1",
+      "primary": "#A78BFA",
+      "primary_contrast": "#111827",
+      "border": "#475569",
+      "focus": "#FBBF24"
+    },
+    "typography": [
+      "system-ui",
+      "-apple-system",
+      "Segoe UI",
+      "sans-serif"
+    ],
+    "spacing": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      24,
+      32,
+      48,
+      64
+    ],
+    "border_radius": 16,
+    "content_max_width": 1180,
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "min_width": 320
+      },
+      {
+        "name": "tablet",
+        "min_width": 768
+      },
+      {
+        "name": "desktop",
+        "min_width": 1024
+      },
+      {
+        "name": "wide",
+        "min_width": 1280
+      }
+    ]
+  },
+  "navigation": [
+    {
+      "order": 1,
+      "label": "Перший екран",
+      "target": "#hero"
+    },
+    {
+      "order": 2,
+      "label": "Цінність",
+      "target": "#value"
+    },
+    {
+      "order": 3,
+      "label": "Процес",
+      "target": "#process"
+    },
+    {
+      "order": 4,
+      "label": "Заклик до дії",
+      "target": "#cta"
+    }
+  ],
+  "pages": [
+    {
+      "order": 1,
+      "id": "landing",
+      "path": "/",
+      "title": "Лендінг",
+      "sections": [
+        {
+          "order": 1,
+          "id": "hero",
+          "title": "Перший екран",
+          "purpose": "Швидко пояснити пропозицію сторінки та дати основний напрям дії.",
+          "role": "intro",
+          "key_content": [
+            "Коротка пропозиція",
+            "Підтримувальний опис",
+            "Основна дія"
+          ]
+        },
+        {
+          "order": 2,
+          "id": "value",
+          "title": "Цінність",
+          "purpose": "Показати практичні переваги без припущень про конкретну аудиторію.",
+          "role": "value-proposition",
+          "key_content": [
+            "Ключові вигоди",
+            "Проблеми, які вирішує сторінка",
+            "Докази або факти за наявності"
+          ]
+        },
+        {
+          "order": 3,
+          "id": "process",
+          "title": "Процес",
+          "purpose": "Описати зрозумілий шлях від першого контакту до результату.",
+          "role": "process",
+          "key_content": [
+            "Кроки співпраці",
+            "Очікування на кожному етапі",
+            "Точки ухвалення рішення"
+          ]
+        },
+        {
+          "order": 4,
+          "id": "cta",
+          "title": "Заклик до дії",
+          "purpose": "Завершити сторінку чіткою дією для наступного кроку.",
+          "role": "conversion",
+          "key_content": [
+            "Повтор основної пропозиції",
+            "Контактний або заявковий сценарій",
+            "Коротке зняття ризику"
+          ]
+        }
+      ]
+    }
+  ],
+  "asset_slots": [
+    {
+      "id": "brand-logo",
+      "kind": "logo",
+      "required": false,
+      "alt_text_required": true,
+      "purpose": "Місце для майбутнього логотипа без вигаданого файлу або URL."
+    },
+    {
+      "id": "primary-visual",
+      "kind": "image",
+      "required": false,
+      "alt_text_required": true,
+      "purpose": "Місце для головного візуального матеріалу після надання реального asset."
+    }
+  ],
+  "seo_defaults": {
+    "title_template": "{{page_title}} | {{project_name_placeholder}}",
+    "description_template": "{{page_description_placeholder}}",
+    "robots": "index,follow",
+    "canonical_policy": "Визначити canonical URL лише після підтвердження домену."
+  },
+  "accessibility_requirements": [
+    "Запланувати логічну ієрархію заголовків.",
+    "Передбачити зрозумілі назви інтерактивних елементів.",
+    "Не покладатися лише на колір для передавання змісту."
+  ],
+  "responsive_rules": {
+    "strategy": "mobile-first",
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "min_width": 320
+      },
+      {
+        "name": "tablet",
+        "min_width": 768
+      },
+      {
+        "name": "desktop",
+        "min_width": 1024
+      },
+      {
+        "name": "wide",
+        "min_width": 1280
+      }
+    ],
+    "navigation": [
+      "На mobile показувати компактну вертикальну або приховану навігацію.",
+      "На tablet і ширше дозволена горизонтальна навігація."
+    ],
+    "grid": [
+      "Починати з однієї колонки на mobile.",
+      "Додавати колонки лише після tablet breakpoint за потреби секції."
+    ],
+    "media": [
+      "Медіа мають масштабуватися в межах контейнера.",
+      "Кожен змістовний медіа-slot потребує alt-тексту перед реалізацією."
+    ]
+  },
+  "generation_constraints": [
+    "Дозволена лише майбутня статична генерація файлів після окремого renderer-етапу.",
+    "Заборонено вставляти inline secrets або значення змінних середовища.",
+    "Заборонено додавати remote scripts або зовнішні runtime-залежності.",
+    "Заборонено автоматичний deploy.",
+    "Заборонено виконувати task як код або shell-команду."
+  ],
+  "acceptance_criteria": [
+    "Бриф містить усі обов'язкові поля structured brief JSON.",
+    "Текст завдання збережено без змін.",
+    "План не створює файли сайту і не виконує зовнішні дії.",
+    "Site-spec серіалізується у JSON-safe dict без Enum або tuple.",
+    "Navigation targets посилаються лише на наявні сторінки або секції."
+  ],
+  "assumptions": [
+    "Сайт планується як landing, бо це явно передано через --site-type.",
+    "Бренд, аудиторія, офер і докази цінності ще не надані.",
+    "Назва бізнесу, домен, контакти, ціни, відгуки та досягнення не задані й не вигадуються.",
+    "Візуальні токени є нейтральними placeholder-значеннями, а не затвердженим брендом."
+  ],
+  "warnings": [
+    "Spec-режим не створює готовий сайт, HTML, CSS, JavaScript або файли проєкту.",
+    "Spec є валідованим JSON-контрактом для майбутнього renderer-етапу.",
+    "Текст task зберігається як дані та не виконується."
+  ]
+}
