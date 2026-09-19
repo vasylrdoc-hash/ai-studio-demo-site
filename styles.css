@@ -1091,17 +1091,59 @@ h3 {
   background: color-mix(in srgb, #070a18 82%, transparent);
 }
 
+[data-showcase="lumina-commercial-showcase"] .wordmark {
+  gap: 10px;
+  align-items: center;
+  color: #f4f7ff;
+}
+
+[data-showcase="lumina-commercial-showcase"] .shyroko-brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 4px;
+  transform: rotate(-8deg);
+}
+
+[data-showcase="lumina-commercial-showcase"] .shyroko-brand-mark span {
+  border-radius: 6px;
+  background: linear-gradient(135deg, #8db4ff, #a78bfa);
+}
+
+[data-showcase="lumina-commercial-showcase"] .shyroko-brand-mark span:first-child {
+  grid-row: span 2;
+}
+
+[data-showcase="lumina-commercial-showcase"] .shyroko-brand-text {
+  display: grid;
+  gap: 1px;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+[data-showcase="lumina-commercial-showcase"] .shyroko-brand-text span:first-child {
+  font-size: 0.98rem;
+}
+
+[data-showcase="lumina-commercial-showcase"] .shyroko-brand-text span:last-child {
+  color: var(--color-muted);
+  font-size: 0.66rem;
+  font-weight: 800;
+}
+
 [data-showcase="lumina-commercial-showcase"] .hero-section {
-  min-height: min(860px, calc(100vh - 74px));
+  min-height: min(820px, calc(100vh - 74px));
   display: grid;
   align-items: center;
-  padding-block: clamp(4rem, 7vw, 7.5rem);
+  padding-block: clamp(3rem, 5.6vw, 5.75rem);
   scroll-margin-top: 84px;
 }
 
 [data-showcase="lumina-commercial-showcase"] h1 {
-  max-width: 13ch;
-  font-size: clamp(3rem, 2.3rem + 3.1vw, 6.4rem);
+  max-width: 14ch;
+  font-size: clamp(2.85rem, 2.15rem + 2.7vw, 5.35rem);
 }
 
 [data-showcase="lumina-commercial-showcase"] .hero-tagline {
@@ -1130,7 +1172,17 @@ h3 {
 }
 
 [data-showcase="lumina-commercial-showcase"] .hero-media {
+  min-height: 0;
+  aspect-ratio: 3 / 2;
   transform: none;
+}
+
+[data-showcase="lumina-commercial-showcase"] .hero-image {
+  min-height: 0;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: 50% 50%;
 }
 
 [data-showcase="lumina-commercial-showcase"] .cards-grid,
@@ -1302,12 +1354,15 @@ h3 {
 
 [data-showcase="lumina-commercial-showcase"] .floating-page-nav {
   position: fixed;
-  right: max(18px, env(safe-area-inset-right));
+  inset-inline: 0;
   bottom: max(18px, env(safe-area-inset-bottom));
   z-index: 9;
-  display: grid;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  display: flex;
   gap: 10px;
-  justify-items: end;
+  justify-content: center;
+  margin-inline: auto;
 }
 
 [data-showcase="lumina-commercial-showcase"] .page-jump,
@@ -1522,7 +1577,6 @@ h3 {
   }
 
   [data-showcase="lumina-commercial-showcase"] .floating-page-nav {
-    right: max(12px, env(safe-area-inset-right));
     bottom: max(12px, env(safe-area-inset-bottom));
     gap: 8px;
   }
@@ -1570,6 +1624,11 @@ h3 {
 @media (min-width: 1024px) {
   .hero-grid {
     grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+  }
+
+  [data-showcase="lumina-commercial-showcase"] .hero-grid {
+    grid-template-columns: minmax(0, 0.86fr) minmax(460px, 1.14fr);
+    gap: clamp(2rem, 3.2vw, 3.5rem);
   }
 
   [data-showcase="beauty-salon-showcase"] .hero-grid {
